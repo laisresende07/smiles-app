@@ -31,9 +31,9 @@ function connectDB() {
   mongoose.connect(dbConfig.url, {
     useNewUrlParser: true
   }).then(() => {
-    console.log("Successfully connected to the database");
+    console.log("Connected to the database.");
   }).catch(err => {
-    console.log('Could not connect to the database. Exiting now...', err);
+    console.log('Connection failed. Exiting now...', err);
     setTimeout(connectDB(), 3000)
   });
 }
@@ -43,7 +43,6 @@ var contr = require("./controllers/smile-controller")
 mq.start().then((conn) => {
   mq.listenOnQueue(contr.saveSmile);
   mq.listenOnMessagesQueue();
-
 });
 
 setInterval(function () {
@@ -52,7 +51,6 @@ setInterval(function () {
     mq.MESSAGES = mq.MESSAGES.slice(50)
   }
 }, 300000);
-
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

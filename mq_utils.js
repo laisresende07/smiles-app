@@ -32,8 +32,8 @@ async function publishToQueue(message) {
         channel.sendToQueue("jobs", Buffer.from(JSON.stringify(message)))
         console.log(`Job sent successfully ${JSON.stringify(message)}`);
     }
-    catch (ex) {
-        console.error(ex)
+    catch (e) {
+        console.error(e)
     }
 }
 
@@ -46,8 +46,8 @@ async function listenOnQueue(callbackFunc) {
         })
         console.log("Waiting for messages on jobs...")
     }
-    catch (ex) {
-        console.error(ex)
+    catch (e) {
+        console.error(e)
     }
 }
 
@@ -62,8 +62,8 @@ async function listenOnMessagesQueue() {
         })
         console.log("Waiting for messages on messages...")
     }
-    catch (ex) {
-        console.error(ex)
+    catch (e) {
+        console.error(e)
     }
 }
 
@@ -73,8 +73,8 @@ async function publishMessageToQueue(message) {
         channel.sendToQueue("messages", Buffer.from(JSON.stringify(message)))
         console.log(`Message sent successfully ${JSON.stringify(message)}`);
     }
-    catch (ex) {
-        console.error(ex)
+    catch (e) {
+        console.error(e)
     }
 }
 
@@ -83,4 +83,4 @@ exports.publishMessageToQueue = publishMessageToQueue;
 exports.listenOnMessagesQueue = listenOnMessagesQueue;
 exports.listenOnQueue = listenOnQueue;
 exports.start = start;
-exports.MESSAGES = MESSAGES;
+exports.MESSAGES = MESSAGES

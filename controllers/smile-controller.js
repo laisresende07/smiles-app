@@ -6,7 +6,7 @@ exports.create = (req, res) => {
     console.log(req.body)
     if (!req.body.time || !req.body.video_url || !req.body.username || !req.body.expression) {
         return res.status(400).send({
-            message: "Request Validation Failed! Some fields are empty!"
+            message: "Request Validation Failed! Fill in all the fields!"
         });
     }
 
